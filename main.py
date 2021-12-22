@@ -19,7 +19,6 @@ def create():
     return render_template("create.html")
   if request.method == "POST":
     list_name = request.form["listname"]
-    contents = request.form["contents"]
 
     return redirect(url_for('home'))
 

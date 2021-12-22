@@ -14,3 +14,27 @@ a:hover {
   text-decoration: underline;
   /* color: #4287f5 */
 }
+
+#input-create {
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #dfe1e8;
+  transition: 0.65s;
+}
+
+#input-create:hover {
+  background-color: whitesmoke;
+}
+
+#btn-create {
+  border-radius: 5px;
+  padding: 10px;
+  color: #333;
+  background-color: #dfe1e8;
+  transition: 0.5s;
+}
+
+#btn-create:hover {
+  background-color: whitesmoke;
+  cursor: pointer;
+}
