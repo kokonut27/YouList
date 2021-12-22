@@ -32,4 +32,4 @@ def edit():
     # flash("Your playlist has been successfully edited!")
     return redirect(url_for('home'))
 
-app.run(host = "0.0.0.0", port = 3000)
+app.run(host = "0.0.0.0", port = 3000, debug=True)
