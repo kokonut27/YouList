@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for, redirect, flash
+from flask import Flask, render_template, request, url_for, redirect
 import json
 import sqlite3
 
@@ -19,8 +19,6 @@ def create():
     return render_template("create.html")
   if request.method == "POST":
     list_name = request.form["listname"]
-
-    
 
     # flash("The playlist has successfully been created!")
     return redirect(url_for('home'))
