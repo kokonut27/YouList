@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for, redirect
+from flask import Flask, render_template, request, url_for, redirect, flash
 import json
 import sqlite3
 
@@ -20,6 +20,18 @@ def create():
   if request.method == "POST":
     list_name = request.form["listname"]
 
+    
+
+    # flash("The playlist has successfully been created!")
+    return redirect(url_for('home'))
+
+@app.route('/edit', methods = ["GET", "POST"])
+def edit():
+  if request.method == "GET":
+    return render_template("edit.html")
+  if request.method == "POST":
+
+    # flash("Your playlist has been successfully edited!")
     return redirect(url_for('home'))
 
 app.run(host = "0.0.0.0", port = 3000)
