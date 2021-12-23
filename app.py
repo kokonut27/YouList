@@ -4,6 +4,29 @@ import json
 
 app = Flask(__name__)
 
+"""
+def get_board():
+    conn = sqlite3.connect('database.db')
+    cur = conn.cursor()
+    a = []
+    num_max = 0
+    for row in cur.execute('SELECT * FROM leaderboard ORDER BY score'):
+      num_max+=1
+      if num_max == 5:
+        break
+      else:
+        a.append(row)
+    return '\n\n'.join(map(lambda x: str(x[0]) + ' ' + str(x[1]), a))
+
+# print(get_board())
+
+def add_leader(username2, score2):
+  conn = sqlite3.connect('database.db')
+  conn.execute("INSERT INTO leaderboard (username, score) VALUES (?, ?)", (username2, score2))
+  conn.commit()
+  conn.close()
+"""
+
 @app.route('/')
 def index():
   return render_template("index.html")
