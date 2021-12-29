@@ -8,10 +8,14 @@
     <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet"/>
   </head>
   <body>
-    <a href="{{ url_for('index') }}">
-      <img src="{{ url_for('static', filename='logo.png') }}" height="50" width="50" style="border-radius: 50%; vertical-align: middle;"/>
-      <h1 style="display: inline">YouList</h1>
-    </a>
+    <div id="header">
+      <a href="{{ url_for('index') }}">
+        <img src="{{ url_for('static', filename='logo.png') }}" height="50" width="50" style="border-radius: 50%; vertical-align: middle;"/>
+        <h1 style="display: inline">YouList</h1>
+      </a>
+    </div>
+
+    <br><br>
 
     <h2>Wanna create a local playlist?</h2>
     <p>Then you've come to the right place! YouList allows users to create playlists, <em>for free!</em> It even saves playlists for you, and leaves links for you to use!</p>

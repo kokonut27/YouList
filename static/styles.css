@@ -42,3 +42,7 @@ a:hover {
   background-color: whitesmoke;
   cursor: pointer;
 }
+
+div#header {
+  float: left;
+}
