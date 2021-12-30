@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
 import json
+import sqlite3
 
 app = Flask(__name__)
 
@@ -33,7 +34,13 @@ def index():
     
 @app.route('/home')
 def home():
-  return render_template("home.html")
+  con = sqlite3.connect('database.db')
+
+  if con:
+    playlist_exist = True
+  else:
+    playlist_exist = False
+  return render_template("home.html", pe=playlist_exist)
     
 @app.route('/create', methods = ["GET", "POST"])
 def create():

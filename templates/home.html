@@ -23,6 +23,15 @@
 
     <br><br>
 
+    <h2>Home</h2>
+    <h3>Playlists</h3>
+    <br>
+    {% if pe %}
+      <p>Playlist exists!</p>
+    {% else %}
+      <p>No playlists exist! Create a playlist <a href="{{ url_for('create') }}">here!</a></p>
+    {% endif %}
+    
     <br><br><br>
 
     
