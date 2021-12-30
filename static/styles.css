@@ -45,4 +45,30 @@ a:hover {
 
 div#header {
   float: left;
+  padding-left: 1.7em;
+}
+
+
+div.navbar {
+  /* width: 50%; */
+  height: 2em;
+  /* length: 100%; 
+  /* width: 100%; */
+  transition: 0.7s;
+  overflow: hidden;
+  margin: 0;
+}
+
+div.navbar a {
+  padding: 1em;
+  border-radius: 5px;
+  width: 50%;
+  // display: inline-block;
+  float: center;
+}
+
+div.navbar a:hover {
+  background-color: #333;
+  color: #dfe1e8;
+  padding: 1em;
 }
