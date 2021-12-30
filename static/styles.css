@@ -49,19 +49,21 @@ div#header {
 }
 
 
-div.navbar {
-  /* width: 50%; */
+/* div.navbar {
+  width: 50%;
   height: 2em;
-  /* length: 100%; 
-  /* width: 100%; */
+  length: 100%; 
+  width: 100%; 
   transition: 0.7s;
   overflow: hidden;
   margin: 0;
-}
+} */
 
 div.navbar a {
-  padding: 1em;
+  font-size: 1.35em;
+  margin: auto;
   border-radius: 5px;
+  padding: 1em;
   width: 50%;
   // display: inline-block;
   float: center;
