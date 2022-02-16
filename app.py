@@ -1,32 +1,13 @@
-from flask import Flask, render_template, request, url_for, redirect
-from flask_sqlalchemy import SQLAlchemy
+from flask import Flask, render_template, request, url_for, redirect, flash
 import json
-import sqlite3
+import os
+from replit import db
 
-app = Flask(__name__)
-
-"""
-def get_board():
-    conn = sqlite3.connect('database.db')
-    cur = conn.cursor()
-    a = []
-    num_max = 0
-    for row in cur.execute('SELECT * FROM leaderboard ORDER BY score'):
-      num_max+=1
-      if num_max == 5:
-        break
-      else:
-        a.append(row)
-    return '\n\n'.join(map(lambda x: str(x[0]) + ' ' + str(x[1]), a))
-
-# print(get_board())
-
-def add_leader(username2, score2):
-  conn = sqlite3.connect('database.db')
-  conn.execute("INSERT INTO leaderboard (username, score) VALUES (?, ?)", (username2, score2))
-  conn.commit()
-  conn.close()
-"""
+app = Flask(__name__,
+            static_url_path='',
+            static_folder='static',
+            template_folder='templates')
+app.config["SECRET_KEY"] = os.environ["secret"]
 
 @app.route('/')
 def index():
@@ -34,9 +15,12 @@ def index():
     
 @app.route('/home')
 def home():
-  con = sqlite3.connect('database.db')
+  try:
+    playlists = db["playlists"]
+  except:
+    playlists = False
 
-  if con:
+  if playlists:
     playlist_exist = True
   else:
     playlist_exist = False
@@ -49,8 +33,14 @@ def create():
   if request.method == "POST":
     list_name = request.form["listname"]
     
-    # flash("The playlist has successfully been created!")
-    return redirect(url_for('home'))
+    db["playlists"] = {
+      "playlist_name": list_name,
+      "content": None,
+    }
+    # for x in db["playlists"].items():
+    #  print(x)
+    flash("The playlist has successfully been created!")
+    return redirect(url_for('edit'))
     
 @app.route('/edit', methods = ["GET", "POST"])
 def edit():
@@ -58,8 +48,9 @@ def edit():
     return render_template("edit.html")
   if request.method == "POST":
     
-    # flash("Your playlist has been successfully edited!")
+    flash("Your playlist has been successfully edited!")
     return redirect(url_for('home'))
+
 
 if __name__ == "__main__":
   app.run(host = "0.0.0.0", port = 8080, debug=True)
