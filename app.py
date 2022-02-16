@@ -9,12 +9,18 @@ app = Flask(__name__,
             template_folder='templates')
 app.config["SECRET_KEY"] = os.environ["secret"]
 
+redirect_home = False
+
 @app.route('/')
 def index():
-  return render_template("index.html")
+  if redirect_home:
+    return render_template("home.html")
+  else:
+    return render_template("index.html")
     
 @app.route('/home')
 def home():
+  global redirect_home
   try:
     playlists = db["playlists"]
   except:
@@ -24,6 +30,8 @@ def home():
     playlist_exist = True
   else:
     playlist_exist = False
+  
+  redirect_home = True
   return render_template("home.html", pe=playlist_exist)
     
 @app.route('/create', methods = ["GET", "POST"])
