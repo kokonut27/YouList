@@ -43,7 +43,7 @@ a:hover {
   cursor: pointer;
 }
 
-div#header {
+#header {
   float: left;
   padding-left: 1.7em;
 }
@@ -59,17 +59,17 @@ div#header {
   margin: 0;
 } */
 
-div.navbar a {
+.navbar a {
   font-size: 1.35em;
   margin: auto;
   border-radius: 5px;
   padding: 1em;
   width: 50%;
-  // display: inline-block;
+  /* display: inline-block; */
   float: center;
 }
 
-div.navbar a:hover {
+.navbar a:hover {
   background-color: #333;
   color: #dfe1e8;
   padding: 1em;
