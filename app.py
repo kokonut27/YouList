@@ -38,6 +38,7 @@ def home():
 def create():
   if request.method == "GET":
     return render_template("create.html")
+
   if request.method == "POST":
     list_name = request.form["listname"]
     
@@ -50,11 +51,11 @@ def create():
     flash("The playlist has successfully been created!")
     return redirect(url_for('edit'))
     
-@app.route('/edit', methods = ["GET", "POST"])
+@app.route('/edit', methods = ["GET", "EDIT"])
 def edit():
   if request.method == "GET":
     return render_template("edit.html")
-  if request.method == "POST":
+  if request.method == "EDIT":
     
     flash("Your playlist has been successfully edited!")
     return redirect(url_for('home'))
